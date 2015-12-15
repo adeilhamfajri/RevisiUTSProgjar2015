@@ -22,7 +22,7 @@ public class UTSProgjar {
     public static void main(String[] args) throws IOException {
         
          
-            Socket socket = new Socket("10.151.34.155", 6666);
+            Socket socket = new Socket("10.151.43.147", 6666);
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
             
@@ -51,15 +51,15 @@ public class UTSProgjar {
                     String[] arg = arguments.split(":");
                     int len = Integer.parseInt(arg[1]);
                     
-                    String respond = "Hash:";
+                    String respon = "Hash:";
                     for(int i=0;i<len;i++) {
                         is.read(dum);
-                        respond += new String(dum);
+                        respon += new String(dum);
                     }
                     
-                    respond += "\n";
-                    System.out.print("Respond: " + respond);
-                    os.write(respond.getBytes());
+                    respon += "\n";
+                    System.out.print("Respon: " + respon);
+                    os.write(respon.getBytes());
                     os.flush();
                     
                     is.read(dum);
@@ -102,9 +102,9 @@ public class UTSProgjar {
                             break;
                     }
                     
-                    String respond = "result:"+ Integer.toString(temp) + "\n";
-                    System.out.print("Respond: " + respond);
-                    os.write(respond.getBytes());
+                    String respon = "result:"+ Integer.toString(temp) + "\n\n";
+                    System.out.print("Respon: " + respon);
+                    os.write(respon.getBytes());
                     os.flush();
                 }
                  
